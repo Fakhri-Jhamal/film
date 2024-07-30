@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="Bahan.css">
+</head>
+<body>
+    <div class="header">
+        <div class="title"></div>
+        <div class="favorite">Film Favorit</div>
+    </div>
+    <div class="container">
+        <div class="poster" onclick="openModal('video1')">
+            <img src="https://cdn.shopify.com/s/files/1/0037/8008/3782/products/IMG_4757_1-196891_1024x1024@2x.jpg?v=1621901106" alt="Movie Poster 1">
+            <div class="poster-title">transformer</div>
+        </div>
+        <div class="poster" onclick="openModal('video2')">
+            <img src="https://www.themoviedb.org/t/p/original/fFgRMzm2LPPac36qmVi5EBmW9i6.jpg" alt="Movie Poster 2">
+            <div class="poster-title">jujur kasian</div>
+        </div>
+        <div class="poster" onclick="openModal('video3')">
+            <img src="https://i.pinimg.com/originals/4e/e9/ab/4ee9abcefda1ad998d566929ee0b5530.jpg" alt="Movie Poster 3">
+            <div class="poster-title">starwars</div>
+        </div>
+    </div>
+
+    <div id="videoModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modalVideo" class="modal-content" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function openModal(videoId) {
+            var modal = document.getElementById("videoModal");
+            var video = document.getElementById("modalVideo");
+
+            switch(videoId) {
+                case 'video1':
+                    video.src = 'https://youtube.com/shorts/3gHjJKnXtWw?si=5_nThTkDBAnKk291';
+                    break;
+                case 'video2':
+                    video.src = 'https://youtube.com/shorts/ulmCtDKzeas?si=qdL_YMc0g5s8vgRn';
+                    break;
+                case 'video3':
+                    video.src = 'https://youtu.be/7Ood-IE7sx4?si=-Dz9VOFTalCcC6bc';
+                    break;
+                default:
+                    video.src = '';
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("videoModal");
+            var video = document.getElementById("modalVideo");
+            video.src = '';
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("videoModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
